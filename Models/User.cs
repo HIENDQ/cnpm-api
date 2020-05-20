@@ -21,8 +21,10 @@ namespace timtro.Models
         public string Phone { get; set; }
         public string Address { get; set; }
         public string Email { get; set; }
+        public DateTime? DateCreate { get; set; }
+        public DateTime? DateUpdate { get; set; }
 
-        public ICollection<New> News { get; set; }
+        public ICollection<News> News { get; set; }
         public ICollection<Comment> Comments { get; set; }
 
         

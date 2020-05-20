@@ -29,6 +29,7 @@ namespace timtro.Services
         {
             try
            {
+            user.DateCreate=DateTime.Now;
             _context.Add(user);
             _context.SaveChanges();
                
@@ -73,6 +74,7 @@ namespace timtro.Services
             user1.Phone=user.Phone;
             user1.Address=user.Address;
             user1.Email=user.Email;
+            user1.DateUpdate=DateTime.Now;
             _context.SaveChanges();
             }
             catch (System.Exception)

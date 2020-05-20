@@ -9,7 +9,7 @@ using timtro.Models;
 namespace timtro.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200520101504_InitialDatabase")]
+    [Migration("20200520143849_InitialDatabase")]
     partial class InitialDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,12 @@ namespace timtro.Migrations
                     b.Property<int>("AdminId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("DateCreate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("DateUpdate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Email")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
@@ -51,6 +57,12 @@ namespace timtro.Migrations
                     b.Property<int>("AdminId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime?>("DateCreate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("DateUpdate")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<int>("PermissionId")
                         .HasColumnType("int");
 
@@ -75,7 +87,13 @@ namespace timtro.Migrations
                     b.Property<string>("CommentDetail")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<int>("NewId")
+                    b.Property<DateTime?>("DateCreate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("DateUpdate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("NewsId")
                         .HasColumnType("int");
 
                     b.Property<int>("UserId")
@@ -83,16 +101,16 @@ namespace timtro.Migrations
 
                     b.HasKey("CommentId");
 
-                    b.HasIndex("NewId");
+                    b.HasIndex("NewsId");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("Comment");
                 });
 
-            modelBuilder.Entity("timtro.Models.New", b =>
+            modelBuilder.Entity("timtro.Models.News", b =>
                 {
-                    b.Property<int>("NewId")
+                    b.Property<int>("NewsId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -102,17 +120,23 @@ namespace timtro.Migrations
                     b.Property<float>("Area")
                         .HasColumnType("float");
 
+                    b.Property<DateTime?>("DateCreate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("DateUpdate")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("Description")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Picture")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
+                    b.Property<string>("Price")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
                     b.Property<bool>("Status")
                         .HasColumnType("tinyint(1)");
-
-                    b.Property<DateTime>("Time")
-                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Title")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
@@ -120,14 +144,11 @@ namespace timtro.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.Property<string>("price")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.HasKey("NewId");
+                    b.HasKey("NewsId");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("New");
+                    b.ToTable("News");
                 });
 
             modelBuilder.Entity("timtro.Models.Permission", b =>
@@ -135,6 +156,12 @@ namespace timtro.Migrations
                     b.Property<int>("PermissionId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("DateCreate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("DateUpdate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("PermissionName")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
@@ -156,6 +183,12 @@ namespace timtro.Migrations
                     b.Property<bool>("CheckAction")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<DateTime?>("DateCreate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("DateUpdate")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<int>("PermissionId")
                         .HasColumnType("int");
 
@@ -176,6 +209,12 @@ namespace timtro.Migrations
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<DateTime>("Birthday")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("DateCreate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("DateUpdate")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Email")
@@ -218,9 +257,9 @@ namespace timtro.Migrations
 
             modelBuilder.Entity("timtro.Models.Comment", b =>
                 {
-                    b.HasOne("timtro.Models.New", "News")
+                    b.HasOne("timtro.Models.News", "News")
                         .WithMany("Comments")
-                        .HasForeignKey("NewId")
+                        .HasForeignKey("NewsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -231,7 +270,7 @@ namespace timtro.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("timtro.Models.New", b =>
+            modelBuilder.Entity("timtro.Models.News", b =>
                 {
                     b.HasOne("timtro.Models.User", "Users")
                         .WithMany("News")

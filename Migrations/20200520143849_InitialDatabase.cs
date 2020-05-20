@@ -17,7 +17,9 @@ namespace timtro.Migrations
                     Username = table.Column<string>(nullable: true),
                     Password = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true)
+                    Email = table.Column<string>(nullable: true),
+                    DateCreate = table.Column<DateTime>(nullable: true),
+                    DateUpdate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -30,7 +32,9 @@ namespace timtro.Migrations
                 {
                     PermissionId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    PermissionName = table.Column<string>(nullable: true)
+                    PermissionName = table.Column<string>(nullable: true),
+                    DateCreate = table.Column<DateTime>(nullable: true),
+                    DateUpdate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -50,7 +54,9 @@ namespace timtro.Migrations
                     Gender = table.Column<bool>(nullable: false),
                     Phone = table.Column<string>(nullable: true),
                     Address = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true)
+                    Email = table.Column<string>(nullable: true),
+                    DateCreate = table.Column<DateTime>(nullable: true),
+                    DateUpdate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -65,7 +71,9 @@ namespace timtro.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     AdminId = table.Column<int>(nullable: false),
                     PermissionId = table.Column<int>(nullable: false),
-                    license = table.Column<bool>(nullable: false)
+                    license = table.Column<bool>(nullable: false),
+                    DateCreate = table.Column<DateTime>(nullable: true),
+                    DateUpdate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -92,7 +100,9 @@ namespace timtro.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     PermissionId = table.Column<int>(nullable: false),
                     ActionName = table.Column<string>(nullable: true),
-                    CheckAction = table.Column<bool>(nullable: false)
+                    CheckAction = table.Column<bool>(nullable: false),
+                    DateCreate = table.Column<DateTime>(nullable: true),
+                    DateUpdate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -106,26 +116,27 @@ namespace timtro.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "New",
+                name: "News",
                 columns: table => new
                 {
-                    NewId = table.Column<int>(nullable: false)
+                    NewsId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Title = table.Column<string>(nullable: true),
                     Status = table.Column<bool>(nullable: false),
                     Description = table.Column<string>(nullable: true),
-                    price = table.Column<string>(nullable: true),
+                    Price = table.Column<string>(nullable: true),
                     Area = table.Column<float>(nullable: false),
                     Address = table.Column<string>(nullable: true),
                     Picture = table.Column<string>(nullable: true),
-                    Time = table.Column<DateTime>(nullable: false),
+                    DateCreate = table.Column<DateTime>(nullable: true),
+                    DateUpdate = table.Column<DateTime>(nullable: true),
                     UserId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_New", x => x.NewId);
+                    table.PrimaryKey("PK_News", x => x.NewsId);
                     table.ForeignKey(
-                        name: "FK_New_User_UserId",
+                        name: "FK_News_User_UserId",
                         column: x => x.UserId,
                         principalTable: "User",
                         principalColumn: "UserId",
@@ -140,16 +151,18 @@ namespace timtro.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     CommentDetail = table.Column<string>(nullable: true),
                     UserId = table.Column<int>(nullable: false),
-                    NewId = table.Column<int>(nullable: false)
+                    NewsId = table.Column<int>(nullable: false),
+                    DateCreate = table.Column<DateTime>(nullable: true),
+                    DateUpdate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Comment", x => x.CommentId);
                     table.ForeignKey(
-                        name: "FK_Comment_New_NewId",
-                        column: x => x.NewId,
-                        principalTable: "New",
-                        principalColumn: "NewId",
+                        name: "FK_Comment_News_NewsId",
+                        column: x => x.NewsId,
+                        principalTable: "News",
+                        principalColumn: "NewsId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Comment_User_UserId",
@@ -170,9 +183,9 @@ namespace timtro.Migrations
                 column: "PermissionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Comment_NewId",
+                name: "IX_Comment_NewsId",
                 table: "Comment",
-                column: "NewId");
+                column: "NewsId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Comment_UserId",
@@ -180,8 +193,8 @@ namespace timtro.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_New_UserId",
-                table: "New",
+                name: "IX_News_UserId",
+                table: "News",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
@@ -205,7 +218,7 @@ namespace timtro.Migrations
                 name: "Admin");
 
             migrationBuilder.DropTable(
-                name: "New");
+                name: "News");
 
             migrationBuilder.DropTable(
                 name: "Permission");

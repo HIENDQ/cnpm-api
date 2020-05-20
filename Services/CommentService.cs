@@ -29,6 +29,7 @@ namespace timtro.Services
         {
             try
            {
+            comment.DateCreate=DateTime.Now;
             _context.Add(comment);
             _context.SaveChanges();
                
@@ -66,6 +67,7 @@ namespace timtro.Services
             {
             var comment1 = _context.Comments.FirstOrDefault(x=> x.CommentId == comment.CommentId);
             comment1.CommentDetail=comment.CommentDetail;
+            comment1.DateUpdate=DateTime.Now;
             _context.SaveChanges();
             }
             catch (System.Exception)

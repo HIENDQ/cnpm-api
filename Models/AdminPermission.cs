@@ -19,6 +19,8 @@ namespace timtro.Models
         [ForeignKey("Permission")]
         public int PermissionId { get; set; }
         public bool license { get; set; }
+        public DateTime? DateCreate { get; set; }
+        public DateTime? DateUpdate { get; set; }
         public Admin Admins { get; set; }
         public Permission Permissions { get; set; }
 

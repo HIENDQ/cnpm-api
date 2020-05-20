@@ -32,7 +32,7 @@ namespace timtro
             services.AddDbContext<DataContext>(options =>
                 options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<INewService, NewService>();
+            services.AddScoped<INewsService, NewsService>();
             services.AddScoped<ICommentService, CommentService>();
         }
 

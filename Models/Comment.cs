@@ -15,10 +15,12 @@ namespace timtro.Models
         public string CommentDetail { get; set; }
         [ForeignKey("User")]
         public int UserId { get; set; }
-        [ForeignKey("New")]
-        public int  NewId { get; set; }
+        [ForeignKey("News")]
+        public int  NewsId { get; set; }
+        public DateTime? DateCreate { get; set; }
+        public DateTime? DateUpdate { get; set; }
         public User Users { get; set; }
-        public New News { get; set; }
+        public News News { get; set; }
 
         
     }

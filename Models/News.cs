@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace timtro.Models
 {
-    [Table("New")]
-    public class New
+    [Table("News")]
+    public class News
     {
         [Key]
-        public int NewId { get; set; }  
+        public int NewsId { get; set; }  
         public string Title  { get; set; }
         public bool Status { get; set; }
         public string Description { get; set; }
@@ -19,13 +19,14 @@ namespace timtro.Models
         public float Area { get; set; }
         public string Address { get; set; }
         public string Picture { get; set; }
-        public DateTime Time { get; set; }   ///////////////////////
+        public DateTime? DateCreate { get; set; }
+        public DateTime? DateUpdate { get; set; }
+
 
         [ForeignKey("User")]
         public int UserId { get; set; }
         public User Users { get; set; }
         public ICollection<Comment> Comments { get; set; }
-        
 
     }
 }

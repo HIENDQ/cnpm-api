@@ -33,12 +33,12 @@ namespace timtro.Controller
             return _service.AddComment(comment);
         }
 
-        [HttpPut("/api/comment/{id}")]
-        public ActionResult<Boolean> UpdateComment(int id,Comment comment)
-        {
-            comment.CommentId = id;
-            return _service.UpdateComment(comment);
-        }
+        // [HttpPut("/api/comment/{id}")]
+        // public ActionResult<Boolean> UpdateComment(int id,Comment comment)
+        // {
+        //     comment.CommentId = id;
+        //     return _service.UpdateComment(comment);
+        // }
 
         [HttpDelete("/api/comment/{id}")]
         public ActionResult<Boolean> DeleteComment(int id)

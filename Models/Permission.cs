@@ -13,6 +13,8 @@ namespace timtro.Models
         [Key]
         public int PermissionId { get; set; }
         public string PermissionName { get; set; }
+        public DateTime? DateCreate { get; set; }
+        public DateTime? DateUpdate { get; set; }
         public ICollection<AdminPermission> AdminPermissions { get; set; }
         public ICollection<PermissionDetail> PermissionDetails { get; set; }
 

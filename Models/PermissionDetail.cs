@@ -17,6 +17,8 @@ namespace timtro.Models
         public int PermissionId { get; set; }
         public string ActionName { get; set; }
         public bool CheckAction { get; set; }
+        public DateTime? DateCreate { get; set; }
+        public DateTime? DateUpdate { get; set; }
         public Permission Permissions { get; set; }
 
     }

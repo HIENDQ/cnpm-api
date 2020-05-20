@@ -16,6 +16,8 @@ namespace timtro.Models
         public string Password { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
+        public DateTime? DateCreate { get; set; }
+        public DateTime? DateUpdate { get; set; }
         public ICollection<AdminPermission> AdminPermissions { get; set; }
         
         
