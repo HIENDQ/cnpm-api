@@ -9,7 +9,7 @@ using timtro.Models;
 namespace timtro.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200520143849_InitialDatabase")]
+    [Migration("20200522053132_InitialDatabase")]
     partial class InitialDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,7 +40,7 @@ namespace timtro.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("Username")
+                    b.Property<string>("UserName")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("AdminId");

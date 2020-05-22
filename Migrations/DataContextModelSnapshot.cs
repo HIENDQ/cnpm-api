@@ -38,7 +38,7 @@ namespace timtro.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("Username")
+                    b.Property<string>("UserName")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("AdminId");

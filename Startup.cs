@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using cnpm_api.Services;
+using cnpm_api.Services.Interfices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,6 +36,11 @@ namespace timtro
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<INewsService, NewsService>();
             services.AddScoped<ICommentService, CommentService>();
+            services.AddScoped<IAdminService, AdminService>();
+            services.AddScoped<IAdminPermissionService, AdminPermissionService>();
+            services.AddScoped<IPermissionService, PermissionService>();
+            services.AddScoped<IPermissionDetailService, PermissionDetailService>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

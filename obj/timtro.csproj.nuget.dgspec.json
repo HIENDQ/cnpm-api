@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\nam 4 ki 2\\DA CNPM\\timtro\\timtro.csproj": {}
+    "G:\\DACNganh\\cnpm-api\\timtro.csproj": {}
   },
   "projects": {
-    "D:\\nam 4 ki 2\\DA CNPM\\timtro\\timtro.csproj": {
+    "G:\\DACNganh\\cnpm-api\\timtro.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\nam 4 ki 2\\DA CNPM\\timtro\\timtro.csproj",
+        "projectUniqueName": "G:\\DACNganh\\cnpm-api\\timtro.csproj",
         "projectName": "timtro",
-        "projectPath": "D:\\nam 4 ki 2\\DA CNPM\\timtro\\timtro.csproj",
+        "projectPath": "G:\\DACNganh\\cnpm-api\\timtro.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\nam 4 ki 2\\DA CNPM\\timtro\\obj\\",
+        "outputPath": "G:\\DACNganh\\cnpm-api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -73,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
