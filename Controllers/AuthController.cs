@@ -10,11 +10,11 @@ namespace timtro.Controller
 {
     [ApiController]
     [Route("controller")]
-    public class UserLoginController : ControllerBase
+    public class AuthController : ControllerBase
     {
-        private IUserLoginService _service;
+        private IAuthService _service;
 
-        public UserLoginController(IUserLoginService service)
+        public AuthController(IAuthService service)
         {
             _service = service;
         }
@@ -25,7 +25,20 @@ namespace timtro.Controller
         {
             return _service.UserLogin(username,password);
         }
-
-
+        
+        [HttpPost("/api/usersignup")]
+        public ActionResult<Boolean> UserSignUp(AuthSignUp user)
+        {
+            var validation = _service.ValidateBeforeSignUp(user);
+            if (validation == true)
+            {
+                return _service.SignUp(user);
+            }
+            else
+            {
+                return false;
+            }
+        }
+         
     }
 }
